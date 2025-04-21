@@ -6,7 +6,7 @@
 /*   By: asiatik <asiatik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:32:51 by asiatik           #+#    #+#             */
-/*   Updated: 2025/04/21 18:39:12 by asiatik          ###   ########.fr       */
+/*   Updated: 2025/04/21 19:58:14 by asiatik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,8 @@ int	main(int ac, char **av)
 	write(1, "\n", 1);
 	return (0);
 }
+
+// This program takes a string as an argument and applies the ROT13 cipher to it.
+// The ROT13 cipher is a simple letter substitution cipher that replaces a letter with the 13th letter after it in the alphabet.
+// For example, 'a' becomes 'n', 'b' becomes 'o', and so on. The program handles both uppercase and lowercase letters. 
+// If the input string contains any characters that are not letters, they are printed unchanged.

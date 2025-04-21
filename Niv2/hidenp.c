@@ -6,7 +6,7 @@
 /*   By: asiatik <asiatik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:56:46 by asiatik           #+#    #+#             */
-/*   Updated: 2025/04/21 19:30:28 by asiatik          ###   ########.fr       */
+/*   Updated: 2025/04/21 19:58:47 by asiatik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,10 @@ int	main(int ac, char **av)
 	write(1, "\n", 1);
 	return (0);
 }
+
+// This program takes two strings as arguments and checks if the second string is a hidden substring of the first string.
+// A hidden substring is defined as a substring that can be formed by deleting some characters from the first string without changing the order of the remaining characters.
+// The program iterates through each character of the first string and compares it with the characters of the second string.
+// If a character in the first string matches a character in the second string, it moves to the next character in the second string.
+// If all characters of the second string are found in the first string in order, it prints "1" (true).
+// If not, it prints "0" (false).

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   repeat_alpha.c                                     :+:      :+:    :+:   */
+/*   search_and_replace.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asiatik <asiatik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/23 17:28:42 by asiatik           #+#    #+#             */
-/*   Updated: 2025/04/23 18:25:12 by asiatik          ###   ########.fr       */
+/*   Created: 2025/04/23 18:47:52 by asiatik           #+#    #+#             */
+/*   Updated: 2025/04/23 18:53:21 by asiatik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,15 @@
 
 int	main(int ac, char **av)
 {
-	int	repeat;
-	int	alpha;
+	int	i = 0;
 
-	alpha = 0;
-	if (ac == 2)
+	if (ac == 4)
 	{
-		while (av[1][alpha])
+		while (av[1][i] && av[2][1] == 0 && av[3][1] == 0)
 		{
-			repeat = 1;
-			if (av[1][alpha] >= 'a' && av[1][alpha] <= 'z')
-				repeat = av[1][alpha] - 'a' + 1;
-			else if (av[1][alpha] >= 'A' && av[1][alpha] <= 'Z')
-				repeat = av[1][alpha] - 'A' + 1;
-			while (repeat >= 1)
-			{
-				write(1, &av[1][alpha], 1);
-				repeat--;
-			}
-			alpha++;
+			if (av[1][i] == av[2][0])
+				av[1][i] = av[3][0];
+			write(1, &av[1][i++], 1);
 		}
 	}
 	write(1, "\n", 1);

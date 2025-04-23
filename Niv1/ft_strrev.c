@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asiatik <asiatik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/23 21:47:30 by asiatik           #+#    #+#             */
-/*   Updated: 2025/04/23 22:19:49 by asiatik          ###   ########.fr       */
+/*   Created: 2025/04/23 23:02:15 by asiatik           #+#    #+#             */
+/*   Updated: 2025/04/23 23:12:24 by asiatik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+char    *ft_strrev(char *str)
 {
-	int	i;
-	int	j;
+    int i = 0;
+    int len = 0;
+    char    swap;
 
-	i = 0;
-	while (s[i])
-	{
-		j = 0;
-		while (reject[j])
-		{
-			if (s[i] == reject[j++])
-				return (i);
-		}
-		j = 0;
-		i++;
-	}
-	return (i);
+    while (str[len])
+        len++;
+    i = -1;
+    while (++i < --len)
+    {
+        swap = str[i];
+        str[i] = str[len];
+        str[len] = swap;
+    }
+    return (str);
 }
 
 #include <stdio.h>
-
-int main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-    if (argc == 3)
-        printf("ft_strcspn(\"%s\", \"%s\") = %zu\n", argv[1], argv[2], ft_strcspn(argv[1], argv[2]));
-    return(0);
+	if (ac == 2)
+		printf("%s\n", ft_strrev(av[1]));
+	return (0);
 }

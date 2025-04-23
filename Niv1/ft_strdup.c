@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asiatik <asiatik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/23 21:47:30 by asiatik           #+#    #+#             */
-/*   Updated: 2025/04/23 22:19:49 by asiatik          ###   ########.fr       */
+/*   Created: 2025/04/23 22:23:05 by asiatik           #+#    #+#             */
+/*   Updated: 2025/04/23 22:33:21 by asiatik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+char	*ft_strdup(char *src)
 {
-	int	i;
-	int	j;
+	char	*dup;
+	int		i = 0;
+	int		len = 0;
 
-	i = 0;
-	while (s[i])
+	while (src[len])
+		len++;
+	dup = (char *)malloc(sizeof(char) * (len + 1));
+	if (!dup)
+		return (NULL);
+	while (src[i])
 	{
-		j = 0;
-		while (reject[j])
-		{
-			if (s[i] == reject[j++])
-				return (i);
-		}
-		j = 0;
+		dup[i] = src[i];
 		i++;
 	}
-	return (i);
+	dup[i] = '\0';
+	return (dup);
 }
 
 #include <stdio.h>
-
-int main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-    if (argc == 3)
-        printf("ft_strcspn(\"%s\", \"%s\") = %zu\n", argv[1], argv[2], ft_strcspn(argv[1], argv[2]));
-    return(0);
+	if (ac == 2)
+	{
+		printf("Before dup ->: %s\n", av[1]);
+		printf("After dup ->: %s\n", ft_strdup(av[1]));
+	}
+	else
+		printf("\n");
+	return (0);
 }

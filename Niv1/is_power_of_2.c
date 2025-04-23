@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asiatik <asiatik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/23 21:47:30 by asiatik           #+#    #+#             */
-/*   Updated: 2025/04/23 22:19:49 by asiatik          ###   ########.fr       */
+/*   Created: 2025/04/23 23:59:59 by asiatik           #+#    #+#             */
+/*   Updated: 2025/04/24 00:21:18 by asiatik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	ft_strcspn(const char *s, const char *reject)
+int is_power_of_2(unsigned int n)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (s[i])
-	{
-		j = 0;
-		while (reject[j])
-		{
-			if (s[i] == reject[j++])
-				return (i);
-		}
-		j = 0;
-		i++;
-	}
-	return (i);
+	return (n > 0 && ((n & (n -1)) == 0) ? 1 : 0);
 }
 
 #include <stdio.h>
 
-int main(int argc, char **argv)
+int main(void)
 {
-    if (argc == 3)
-        printf("ft_strcspn(\"%s\", \"%s\") = %zu\n", argv[1], argv[2], ft_strcspn(argv[1], argv[2]));
-    return(0);
+    for (int i = 0; i <= 20; i++)
+        printf("%d : %s\n", i, is_power_of_2(i) ? "YES" : "NO");
+    return 0;
 }
+
+// int	main(void)
+// {
+	
+// 	printf ("%d\n", is_power_of_2(1024));
+// 	return (0);
+// }

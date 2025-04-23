@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   inter.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asiatik <asiatik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/23 21:47:30 by asiatik           #+#    #+#             */
-/*   Updated: 2025/04/23 22:19:49 by asiatik          ###   ########.fr       */
+/*   Created: 2025/04/23 23:17:29 by asiatik           #+#    #+#             */
+/*   Updated: 2025/04/23 23:38:23 by asiatik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+int	inter(char *str, char c, int len)
 {
-	int	i;
-	int	j;
+	int	i = 0;
 
-	i = 0;
-	while (s[i])
+	while (str[i] && (i < len || len == -1))
 	{
-		j = 0;
-		while (reject[j])
-		{
-			if (s[i] == reject[j++])
-				return (i);
-		}
-		j = 0;
-		i++;
+		if (str[i++] == c)
+			return (i);
 	}
-	return (i);
+	return (0);
+	
 }
 
-#include <stdio.h>
-
-int main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-    if (argc == 3)
-        printf("ft_strcspn(\"%s\", \"%s\") = %zu\n", argv[1], argv[2], ft_strcspn(argv[1], argv[2]));
-    return(0);
+	int i = 0;
+
+	if (ac == 3)
+	{
+		while (av[1][i])
+		{
+			if (!inter(av[1], av[1][i], i) && inter(av[2], av[1][i], -1))
+				write(1, &av[1][i], 1);
+			i++;
+		}	
+	}
+	write(1, "\n", 1);
+	return (0);
 }

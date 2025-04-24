@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asiatik <asiatik@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cmetee-b <cmetee-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 21:30:51 by asiatik           #+#    #+#             */
-/*   Updated: 2025/04/21 22:41:33 by asiatik          ###   ########.fr       */
+/*   Updated: 2025/04/24 11:12:41 by cmetee-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 int	ft_atoi(char *str)
 {
 	int res = 0;
+	//int sign = 1;
 
 	// while ((*str >= 9 && *str <= 13 )|| *str == 32)
 	// 	str++;
